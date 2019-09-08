@@ -18,7 +18,7 @@ class ProfessorsInUni extends Migration
             $table->string('name');
             $table->string('family');
             $table->string('password');
-            $table->integer('National_Code');
+            $table->integer('Professor_Code')->unique();
             $table->string('type');
             $table->timestamps();
         });

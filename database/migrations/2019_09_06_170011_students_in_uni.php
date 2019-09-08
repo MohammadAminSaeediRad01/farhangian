@@ -18,9 +18,9 @@ class StudentsInUni extends Migration
             $table->string('name');
             $table->string('family');
             $table->string('password');
-            $table->bigInteger('National_Code');
+            $table->bigInteger('National_Code')->unique();
             $table->text('term');
-            $table->text('student_code');
+            $table->string('student_code', 20)->unique();
             $table->string('type');
             $table->string('professor_name');
             $table->date('start_of_internship');
