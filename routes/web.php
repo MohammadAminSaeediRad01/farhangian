@@ -17,6 +17,9 @@
 Route::get('/', 'StudentsController@allOfStudents')->name('masterPage');
 Route::get('/delete/student/{student_id}', 'StudentsController@deleteStudent')->name('delete.student');
 Route::get('/edit/student/{student_id}', 'StudentsController@editStudent')->name('edit.student');
+Route::get('users/{id}', function ($id) {
+
+});
 
 
 
