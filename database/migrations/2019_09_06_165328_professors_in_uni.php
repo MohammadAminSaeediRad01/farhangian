@@ -15,12 +15,13 @@ class ProfessorsInUni extends Migration
     {
         Schema::create('professors', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('family');
             $table->string('password');
             $table->integer('Professor_Code')->unique();
-            $table->string('type');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

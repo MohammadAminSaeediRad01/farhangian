@@ -15,18 +15,19 @@ class StudentsInUni extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('family');
             $table->string('password');
             $table->bigInteger('National_Code')->unique();
-            $table->text('term');
+            $table->string('term');
             $table->string('student_code', 20)->unique();
-            $table->string('type');
             $table->string('professor_name');
             $table->date('start_of_internship');
             $table->date('end_of_internship');
             $table->text('school_address_of_internship');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

@@ -15,9 +15,14 @@ class SchoolsForInternship extends Migration
     {
         Schema::create('schools', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
+            $table->string('school_code')->unique();
+            $table->string('username');
+            $table->string('password');
             $table->string('school_name');
             $table->text('school_address');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
