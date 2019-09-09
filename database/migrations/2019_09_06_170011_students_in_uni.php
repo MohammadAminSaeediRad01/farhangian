@@ -15,17 +15,17 @@ class StudentsInUni extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('name');
             $table->string('family');
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->bigInteger('National_Code')->unique();
             $table->string('term');
             $table->string('student_code', 20)->unique();
-            $table->string('professor_name');
-            $table->date('start_of_internship');
-            $table->date('end_of_internship');
-            $table->text('school_address_of_internship');
+            $table->string('professor_name')->nullable();
+            $table->date('start_of_internship')->nullable();
+            $table->date('end_of_internship')->nullable();
+            $table->text('school_address_of_internship')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });
